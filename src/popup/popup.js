@@ -1,4 +1,4 @@
-const SHORTCUT_MARKUP_PATTERN = /<b>(F|Esc)<\/b>/gi;
+const SHORTCUT_MARKUP_PATTERN = /<b>(F|Esc|右鍵|右键)<\/b>/gi;
 
 const getMessage = (key) => chrome.i18n.getMessage(key) || "";
 

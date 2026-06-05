@@ -1,0 +1,30 @@
+{
+  "extDescription": {
+    "description": "Extension description",
+    "message": "กด F หรือใช้เมนูคลิกขวาเพื่อสลับโหมดเต็มหน้าจอภายในหน้าสำหรับวิดีโอ iQIYI"
+  },
+  "extName": {
+    "description": "Extension name",
+    "message": "iQIYI Full View - เครื่องมือเล่นเต็มหน้าจอภายในหน้าสำหรับ iQIYI"
+  },
+  "contextMenuToggle": {
+    "description": "Context menu item to toggle Full View",
+    "message": "iQIYI Full View"
+  },
+  "popupActive": {
+    "description": "Shown when on iQIYI page",
+    "message": "เปิดใช้งานแล้ว"
+  },
+  "popupDesc": {
+    "description": "Popup usage instructions",
+    "message": "กด \u003Cb>F\u003C/b> บนหน้าวิดีโอ iQIYI หรือใช้เมนูคลิกขวาเพื่อสลับโหมดเต็มหน้าจอภายในหน้า กด \u003Cb>Esc\u003C/b> เพื่อออก"
+  },
+  "popupInactive": {
+    "description": "Shown when not on iQIYI page",
+    "message": "ยังไม่เปิดใช้งาน"
+  },
+  "popupTitle": {
+    "description": "Popup heading",
+    "message": "iQIYI Full View"
+  }
+}
