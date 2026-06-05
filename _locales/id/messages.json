@@ -1,11 +1,11 @@
 {
   "extDescription": {
     "description": "Extension description",
-    "message": "Press F or use the right-click menu to toggle in-page fullscreen for iQIYI videos."
+    "message": "Tekan F atau gunakan menu klik kanan untuk beralih ke mode layar penuh dalam halaman untuk video iQIYI."
   },
   "extName": {
     "description": "Extension name",
-    "message": "iQIYI Full View - In-page fullscreen player for iQIYI"
+    "message": "iQIYI Full View - Alat pemutar layar penuh dalam halaman untuk iQIYI"
   },
   "contextMenuToggle": {
     "description": "Context menu item to toggle Full View",
@@ -13,15 +13,15 @@
   },
   "popupActive": {
     "description": "Shown when on iQIYI page",
-    "message": "已啟用"
+    "message": "Aktif"
   },
   "popupDesc": {
     "description": "Popup usage instructions",
-    "message": "Press \u003Cb>F\u003C/b> or use the right-click on any iQIYI video page to toggle in-page fullscreen. Press \u003Cb>Esc\u003C/b> to exit."
+    "message": "Tekan \u003Cb>F\u003C/b> di halaman video iQIYI atau gunakan menu klik kanan untuk beralih ke mode layar penuh dalam halaman. Tekan \u003Cb>Esc\u003C/b> untuk keluar."
   },
   "popupInactive": {
     "description": "Shown when not on iQIYI page",
-    "message": "未啟用"
+    "message": "Tidak aktif"
   },
   "popupTitle": {
     "description": "Popup heading",

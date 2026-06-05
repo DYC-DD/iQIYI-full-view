@@ -1,10 +1,14 @@
 {
   "extDescription": {
     "description": "Extension description",
-    "message": "按 F 切換 iQIYI 影片的頁內全螢幕模式。"
+    "message": "按 F 或使用右鍵選單切換 iQIYI 影片的頁內全螢幕模式。"
   },
   "extName": {
     "description": "Extension name",
+    "message": "iQIYI Full View - iQIYI 頁內全視窗播放工具"
+  },
+  "contextMenuToggle": {
+    "description": "Context menu item to toggle Full View",
     "message": "iQIYI Full View"
   },
   "popupActive": {
@@ -13,7 +17,7 @@
   },
   "popupDesc": {
     "description": "Popup usage instructions",
-    "message": "在 iQIYI 影片頁面按 \u003Cb>F\u003C/b> 切換頁內全螢幕，按 \u003Cb>Esc\u003C/b> 退出。"
+    "message": "在 iQIYI 影片頁面按 \u003Cb>F\u003C/b> 或使用\u003Cb>右鍵\u003C/b>切換頁內全螢幕，按 \u003Cb>Esc\u003C/b> 退出。"
   },
   "popupInactive": {
     "description": "Shown when not on iQIYI page",

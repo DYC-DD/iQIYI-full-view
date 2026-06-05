@@ -1,11 +1,11 @@
 {
   "extDescription": {
     "description": "Extension description",
-    "message": "Press F or use the right-click menu to toggle in-page fullscreen for iQIYI videos."
+    "message": "按 F 或使用右键菜单切换 iQIYI 视频的页内全屏模式。"
   },
   "extName": {
     "description": "Extension name",
-    "message": "iQIYI Full View - In-page fullscreen player for iQIYI"
+    "message": "iQIYI Full View - iQIYI 页内全屏播放工具"
   },
   "contextMenuToggle": {
     "description": "Context menu item to toggle Full View",
@@ -13,15 +13,15 @@
   },
   "popupActive": {
     "description": "Shown when on iQIYI page",
-    "message": "已啟用"
+    "message": "已启用"
   },
   "popupDesc": {
     "description": "Popup usage instructions",
-    "message": "Press \u003Cb>F\u003C/b> or use the right-click on any iQIYI video page to toggle in-page fullscreen. Press \u003Cb>Esc\u003C/b> to exit."
+    "message": "在 iQIYI 视频页面按 \u003Cb>F\u003C/b> 或使用\u003Cb>右键\u003C/b>切换页内全屏，按 \u003Cb>Esc\u003C/b> 退出。"
   },
   "popupInactive": {
     "description": "Shown when not on iQIYI page",
-    "message": "未啟用"
+    "message": "未启用"
   },
   "popupTitle": {
     "description": "Popup heading",

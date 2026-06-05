@@ -7,8 +7,10 @@
   const ROOT_CLASS = "iqiyi-inline-fullscreen";
   const ROOT_ATTR = "data-iq-inline-root";
   const CLEARED_ATTR = "data-iq-inline-cleared";
+  const HIDDEN_CHROME_ATTR = "data-iq-inline-hidden-chrome";
   const TOP_OFFSET_VAR = "--iq-inline-top-offset";
-  const DEFAULT_TOP_OFFSET = 64;
+  const COMMAND_EVENT = "iqiyi-inline-fs:command";
+  const DEFAULT_TOP_OFFSET = 0;
   const MAX_TOP_OFFSET = 120;
   const MAX_TOP_OFFSET_RATIO = 0.35;
 
@@ -21,6 +23,7 @@
     ".intl-video-area",
     "video",
   ];
+  const HIDDEN_PAGE_CHROME_SELECTORS = [".header-container"];
   const TOP_BAR_SELECTORS = [
     "header",
     "nav",
@@ -37,6 +40,7 @@
   const state = {
     activeRoot: null,
     clearedAncestors: [],
+    hiddenPageChrome: [],
     viewportOffsetHandler: null,
   };
 
@@ -96,6 +100,28 @@
       element.removeAttribute(CLEARED_ATTR);
     }
     state.clearedAncestors = [];
+  };
+
+  const hidePageChrome = (root) => {
+    const hidden = [];
+
+    for (const element of document.querySelectorAll(
+      HIDDEN_PAGE_CHROME_SELECTORS.join(",")
+    )) {
+      if (root === element || root.contains(element)) continue;
+
+      element.setAttribute(HIDDEN_CHROME_ATTR, "");
+      hidden.push(element);
+    }
+
+    return hidden;
+  };
+
+  const restoreHiddenPageChrome = () => {
+    for (const element of state.hiddenPageChrome) {
+      element.removeAttribute(HIDDEN_CHROME_ATTR);
+    }
+    state.hiddenPageChrome = [];
   };
 
   const isVisibleElement = (element) => {
@@ -196,11 +222,13 @@
     }
 
     state.activeRoot = root;
+    root.setAttribute(ROOT_ATTR, "");
+    state.hiddenPageChrome = hidePageChrome(root);
+    state.clearedAncestors = clearAncestorViewportBoundaries(root);
+    document.documentElement.style.setProperty(TOP_OFFSET_VAR, "0px");
+    document.documentElement.classList.add(ROOT_CLASS);
     applyTopOffset();
     startTopOffsetUpdates();
-    root.setAttribute(ROOT_ATTR, "");
-    state.clearedAncestors = clearAncestorViewportBoundaries(root);
-    document.documentElement.classList.add(ROOT_CLASS);
     console.log("[iqiyi-inline-fs] enabled on", describeElement(root));
   };
 
@@ -210,6 +238,7 @@
     document.documentElement.classList.remove(ROOT_CLASS);
     state.activeRoot?.removeAttribute(ROOT_ATTR);
     state.activeRoot = null;
+    restoreHiddenPageChrome();
     restoreClearedAncestors();
     stopTopOffsetUpdates();
     document.documentElement.style.removeProperty(TOP_OFFSET_VAR);
@@ -222,6 +251,26 @@
     }
 
     enableInlineFullscreen();
+  };
+
+  const runCommand = (command) => {
+    if (command === "enable") {
+      enableInlineFullscreen();
+      return;
+    }
+
+    if (command === "disable") {
+      disableInlineFullscreen();
+      return;
+    }
+
+    if (command === "toggle") {
+      toggleInlineFullscreen();
+    }
+  };
+
+  const handleCommand = (event) => {
+    runCommand(event.detail?.command);
   };
 
   const shouldToggleFromKeyboard = (event) =>
@@ -242,6 +291,7 @@
     toggleInlineFullscreen();
   };
 
+  window.addEventListener(COMMAND_EVENT, handleCommand);
   document.addEventListener("keydown", handleKeydown, true);
-  console.log("[iqiyi-inline-fs] content script loaded v3");
+  console.log("[iqiyi-inline-fs] content script loaded v4");
 })();
