@@ -1,6 +1,6 @@
 # CHANGELOG
 
-此變更紀錄遵循 [Keep a Changelog](https://keepachangelog.com/zh-TW/1.1.0/) 格式，用於追蹤版本更新。
+This changelog follows the [Keep a Changelog](https://keepachangelog.com/zh-TW/1.1.0/) format to track version updates.
 
 ## [1.0.1] - 2026-06-06
 
