@@ -1,50 +1,83 @@
 <div align="center">
 
-![](./assets/icons/icon128.png)
+[![](./assets/icons/icon128.png)](https://chromewebstore.google.com/detail/akgblinimdheojahjonfijjmfdclcili?utm_source=item-share-cb)
 
-# iQIYI Full View
+# [iQIYI Full View](https://chromewebstore.google.com/detail/akgblinimdheojahjonfijjmfdclcili?utm_source=item-share-cb)
+
+**"When the official video player is a bit stingy with screen space"**
+
+![GitHub release](https://img.shields.io/github/v/release/DYC-DD/iQIYI-full-view) ![License](https://img.shields.io/github/license/DYC-DD/iQIYI-full-view) ![Last commit](https://img.shields.io/github/last-commit/DYC-DD/iQIYI-full-view) [![Download](https://img.shields.io/badge/Download-Chrome%20Web%20Store-4285F4?style=flat)](https://chromewebstore.google.com/detail/akgblinimdheojahjonfijjmfdclcili?utm_source=item-share-cb) [![中文](https://img.shields.io/badge/README-%E4%B8%AD%E6%96%87-4285F4?style=flat)](./docs/README.zh-TW.md)
 
 </div>
 
-這是一個 Chrome 瀏覽器擴充工具，讓使用者在 [iQIYI](https://www.iq.com/) 影片頁面快速切換「頁內全視窗」播放模式。
+This is a Chrome browser extension that lets users quickly toggle an "in-page full-window" playback mode on [iQIYI](https://www.iq.com/) video pages.
 
-iQIYI 預設播放器尺寸較小，而放大觀看只能切換至全螢幕模式。為了解決這個問題，本擴充功能可將播放器放大至整個瀏覽器視窗大小，充分利用螢幕空間，適合想獲得更大觀看畫面，但不希望進入系統全螢幕模式的使用者。
+iQIYI's default player is relatively small, and enlarging the viewing area normally requires switching to fullscreen mode. To solve this, the extension expands the player to fill the entire browser viewport, making better use of screen space. It is suitable for users who want a larger viewing area without entering system fullscreen mode.
 
-## 安裝方式
+## Demo
 
-1. 下載或 clone 此專案。
+Default iQIYI player:
 
-   ```bash
-   git clone git@github.com:DYC-DD/iQIYI-full-view.git
-   ```
+![Default iQIYI player](./docs/images/demo-1.png)
 
-2. 開啟 Chrome 或其他 Chromium 系瀏覽器。
-3. 前往 `chrome://extensions/`。
-4. 開啟右上角的「開發人員模式」。
-5. 點選「載入未封裝項目」。
-6. 選取此專案資料夾。
+Full View mode:
 
-安裝後，進入 [iQIYI](https://www.iq.com/) 影片頁面即可使用。
+![Full View mode](./docs/images/demo-2.png)
 
-## 使用方式
+## Installation
 
-| 快捷鍵               | 功能               |
-| -------------------- | ------------------ |
-| `F` / `右鍵`         | 切換頁內全視窗模式 |
-| `F` / `右鍵` / `Esc` | 退出頁內全視窗模式 |
+- **Official installation (recommended):**
+
+  - Install directly from the Chrome Web Store: [📥 Install iQIYI Full View](https://chromewebstore.google.com/detail/akgblinimdheojahjonfijjmfdclcili?utm_source=item-share-cb)
+
+- **Developer installation:**
+
+  1. Download or clone this project.
+
+     ```bash
+     git clone git@github.com:DYC-DD/iQIYI-full-view.git
+     ```
+
+  2. Open Chrome and go to `chrome://extensions`.
+  3. Enable "Developer mode" in the top-right corner.
+  4. Click "Load unpacked".
+  5. Select this project folder.
+
+After installation, open an [iQIYI](https://www.iq.com/) video page to use the extension.
+
+## Usage
+
+| Shortcut                    | Action                          |
+| --------------------------- | ------------------------------- |
+| `F` / `Right-click`         | Toggle in-page full-window mode |
+| `F` / `Right-click` / `Esc` | Exit in-page full-window mode   |
 
 > [!TIP]
 >
-> 若焦點在輸入框、文字區塊或可編輯內容中，擴充功能不會攔截 `F` 快捷鍵。
+> If focus is inside an input field, text area, or editable content, the extension will not intercept the `F` shortcut.
 
-## 權限說明
+## Permissions
 
-此擴充功能使用以下權限：
+This extension uses the following permissions:
 
-- `scripting`：用於註冊並執行頁面內容腳本。
-- `contextMenus`：用於在 iQIYI 影片頁面提供右鍵切換 Full View 的選項。
-- `host_permissions`：限制在 [iQIYI](https://www.iq.com/) 相關網域上運作。
+- `scripting`: Registers and runs the page content script.
+- `contextMenus`: Provides a right-click option to toggle Full View on iQIYI video pages.
+- `host_permissions`: Restricts operation to [iQIYI](https://www.iq.com/) related domains.
 
 > [!IMPORTANT]
 >
-> 此擴充功能不會蒐集、傳送或儲存個人資料。
+> This extension does not:
+>
+> - collect personal data
+> - store browsing history
+> - send data to any server
+> - access pages outside iQIYI-related domains
+> - modify your account, subscription, or payment information
+
+## Changelog
+
+For the full update history, please refer to the [CHANGELOG](./docs/CHANGELOG.md)
+
+## License
+
+[MIT License](./LICENSE)
