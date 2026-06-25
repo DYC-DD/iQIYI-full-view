@@ -1,4 +1,6 @@
 const SHORTCUT_MARKUP_PATTERN = /<b>(F|Esc|右鍵|右键)<\/b>/gi;
+const AUTO_CLOSE_CENTER_AD_STORAGE_KEY = "autoCloseCenterAdEnabled";
+const AUTO_CLOSE_CENTER_AD_MESSAGE = "iqiyi-inline-fs:auto-close-center-ad";
 
 const getMessage = (key) => chrome.i18n.getMessage(key) || "";
 
@@ -74,11 +76,78 @@ const updateCurrentTabStatus = () => {
   });
 };
 
+const notifyAutoCloseCenterAdChange = (enabled) => {
+  chrome.runtime.sendMessage(
+    {
+      type: AUTO_CLOSE_CENTER_AD_MESSAGE,
+      enabled,
+    },
+    () => {
+      if (!chrome.runtime.lastError) return;
+
+      console.warn(
+        "[iqiyi-inline-fs] failed to sync auto close ad setting",
+        chrome.runtime.lastError
+      );
+    }
+  );
+};
+
+const loadAutoCloseCenterAdSetting = () => {
+  const toggle = getElement("autoCloseAdToggle");
+  if (!toggle) return;
+
+  chrome.storage.local.get(
+    { [AUTO_CLOSE_CENTER_AD_STORAGE_KEY]: false },
+    (items) => {
+      if (chrome.runtime.lastError) {
+        console.warn(
+          "[iqiyi-inline-fs] failed to load auto close ad setting",
+          chrome.runtime.lastError
+        );
+        return;
+      }
+
+      toggle.checked = Boolean(items[AUTO_CLOSE_CENTER_AD_STORAGE_KEY]);
+    }
+  );
+};
+
+const setupAutoCloseCenterAdToggle = () => {
+  const toggle = getElement("autoCloseAdToggle");
+  if (!toggle) return;
+
+  toggle.addEventListener("change", () => {
+    const enabled = toggle.checked;
+
+    chrome.storage.local.set(
+      { [AUTO_CLOSE_CENTER_AD_STORAGE_KEY]: enabled },
+      () => {
+        if (chrome.runtime.lastError) {
+          toggle.checked = !enabled;
+          console.warn(
+            "[iqiyi-inline-fs] failed to save auto close ad setting",
+            chrome.runtime.lastError
+          );
+          return;
+        }
+
+        notifyAutoCloseCenterAdChange(enabled);
+      }
+    );
+  });
+
+  loadAutoCloseCenterAdSetting();
+};
+
 setLocalizedText("title", "popupTitle");
+setLocalizedText("autoCloseAdLabel", "popupAutoCloseAdLabel");
+setLocalizedText("autoCloseAdDesc", "popupAutoCloseAdDesc");
 
 const description = getElement("desc");
 if (description) {
   renderShortcutDescription(description, getMessage("popupDesc"));
 }
 
+setupAutoCloseCenterAdToggle();
 updateCurrentTabStatus();
