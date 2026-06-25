@@ -1,11 +1,11 @@
 {
   "extDescription": {
     "description": "Extension description",
-    "message": "按 F 或使用右鍵選單切換 iQIYI 影片的頁內全螢幕模式。"
+    "message": "Nhấn F hoặc dùng menu chuột phải để bật/tắt chế độ toàn màn hình trong trang cho video iQIYI."
   },
   "extName": {
     "description": "Extension name",
-    "message": "iQIYI Full View - iQIYI 頁內全視窗播放工具"
+    "message": "iQIYI Full View - Công cụ phát toàn màn hình trong trang cho iQIYI"
   },
   "contextMenuToggle": {
     "description": "Context menu item to toggle Full View",
@@ -13,23 +13,23 @@
   },
   "popupActive": {
     "description": "Shown when on iQIYI page",
-    "message": "已啟用"
+    "message": "Đã bật"
   },
   "popupAutoCloseAdDesc": {
     "description": "Popup auto close pause ad setting description",
-    "message": "影片暫停時若出現置中廣告，會自動點擊關閉。"
+    "message": "Khi quảng cáo tạm dừng ở giữa màn hình xuất hiện, tiện ích sẽ tự động đóng quảng cáo."
   },
   "popupAutoCloseAdLabel": {
     "description": "Popup auto close pause ad setting label",
-    "message": "自動關閉暫停廣告"
+    "message": "Tự động đóng quảng cáo tạm dừng"
   },
   "popupDesc": {
     "description": "Popup usage instructions",
-    "message": "在 iQIYI 影片頁面按 \u003Cb>F\u003C/b> 或使用\u003Cb>右鍵\u003C/b>切換頁內全螢幕，按 \u003Cb>Esc\u003C/b> 退出。"
+    "message": "Nhấn \u003Cb>F\u003C/b> trên trang video iQIYI hoặc dùng menu chuột phải để bật/tắt chế độ toàn màn hình trong trang. Nhấn \u003Cb>Esc\u003C/b> để thoát."
   },
   "popupInactive": {
     "description": "Shown when not on iQIYI page",
-    "message": "未啟用"
+    "message": "Chưa bật"
   },
   "popupTitle": {
     "description": "Popup heading",

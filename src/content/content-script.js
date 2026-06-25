@@ -1,5 +1,152 @@
 (() => {
   const LOADED_FLAG = "__iqiyiInlineFsLoaded";
+  const AUTO_CLOSE_CENTER_AD_LOADED_FLAG =
+    "__iqiyiInlineFsAutoCloseCenterAdLoaded";
+  const COMMAND_EVENT = "iqiyi-inline-fs:command";
+  const AUTO_CLOSE_CENTER_AD_COMMAND = "setAutoCloseCenterAd";
+  const AUTO_CLOSE_CENTER_AD_SELECTOR =
+    "iqydiv[data-player-hook='centerclose'].ad-close-center, [data-player-hook='centerclose'].ad-close-center";
+  const AUTO_CLOSE_CENTER_AD_CHECK_MS = 800;
+  const AUTO_CLOSE_CENTER_AD_RETRY_MS = 1200;
+
+  const installAutoCloseCenterAdFeature = () => {
+    if (window[AUTO_CLOSE_CENTER_AD_LOADED_FLAG]) return;
+    window[AUTO_CLOSE_CENTER_AD_LOADED_FLAG] = true;
+
+    const featureState = {
+      enabled: false,
+      observer: null,
+      interval: null,
+      raf: null,
+      lastClickAt: new WeakMap(),
+    };
+
+    const isAutoCloseVisibleElement = (element) => {
+      const styles = getComputedStyle(element);
+      const opacity = Number.parseFloat(styles.opacity || "1");
+
+      return (
+        styles.display !== "none" &&
+        styles.visibility !== "hidden" &&
+        Number.isFinite(opacity) &&
+        opacity > 0
+      );
+    };
+
+    const shouldClickCenterAdClose = (element) => {
+      if (!(element instanceof Element)) return false;
+      if (!isAutoCloseVisibleElement(element)) return false;
+
+      const now = Date.now();
+      const lastClickAt = featureState.lastClickAt.get(element) || 0;
+      if (now - lastClickAt < AUTO_CLOSE_CENTER_AD_RETRY_MS) return false;
+
+      featureState.lastClickAt.set(element, now);
+      return true;
+    };
+
+    const clickCenterAdClose = (element) => {
+      const rect = element.getBoundingClientRect();
+      const clientX = rect.left + rect.width / 2;
+      const clientY = rect.top + rect.height / 2;
+      const eventOptions = {
+        bubbles: true,
+        cancelable: true,
+        view: window,
+        clientX: Number.isFinite(clientX) ? clientX : 0,
+        clientY: Number.isFinite(clientY) ? clientY : 0,
+      };
+
+      element.dispatchEvent(new MouseEvent("mouseover", eventOptions));
+      element.dispatchEvent(new MouseEvent("mousedown", eventOptions));
+      element.dispatchEvent(new MouseEvent("mouseup", eventOptions));
+
+      if (typeof element.click === "function") {
+        element.click();
+        return;
+      }
+
+      element.dispatchEvent(new MouseEvent("click", eventOptions));
+    };
+
+    const closeCenterAds = () => {
+      if (!featureState.enabled) return;
+
+      for (const element of document.querySelectorAll(
+        AUTO_CLOSE_CENTER_AD_SELECTOR
+      )) {
+        if (!shouldClickCenterAdClose(element)) continue;
+        clickCenterAdClose(element);
+      }
+    };
+
+    const queueCloseCenterAds = () => {
+      if (!featureState.enabled || featureState.raf) return;
+
+      featureState.raf = window.requestAnimationFrame(() => {
+        featureState.raf = null;
+        closeCenterAds();
+      });
+    };
+
+    const startAutoCloseCenterAd = () => {
+      if (featureState.observer) return;
+
+      const root = document.documentElement || document.body;
+      if (!root) return;
+
+      featureState.observer = new MutationObserver(queueCloseCenterAds);
+      featureState.observer.observe(root, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ["class", "style", "data-player-hook"],
+      });
+      featureState.interval = window.setInterval(
+        closeCenterAds,
+        AUTO_CLOSE_CENTER_AD_CHECK_MS
+      );
+      closeCenterAds();
+    };
+
+    const stopAutoCloseCenterAd = () => {
+      featureState.observer?.disconnect();
+      featureState.observer = null;
+
+      if (featureState.interval) {
+        window.clearInterval(featureState.interval);
+        featureState.interval = null;
+      }
+
+      if (featureState.raf) {
+        window.cancelAnimationFrame(featureState.raf);
+        featureState.raf = null;
+      }
+    };
+
+    const setAutoCloseCenterAd = (enabled) => {
+      featureState.enabled = enabled;
+
+      if (enabled) {
+        startAutoCloseCenterAd();
+        return;
+      }
+
+      stopAutoCloseCenterAd();
+    };
+
+    const handleAutoCloseCenterAdCommand = (event) => {
+      const detail = event.detail;
+      const command = typeof detail === "string" ? detail : detail?.command;
+
+      if (command !== AUTO_CLOSE_CENTER_AD_COMMAND) return;
+      setAutoCloseCenterAd(Boolean(detail?.enabled));
+    };
+
+    window.addEventListener(COMMAND_EVENT, handleAutoCloseCenterAdCommand);
+  };
+
+  installAutoCloseCenterAdFeature();
 
   if (window[LOADED_FLAG]) return;
   window[LOADED_FLAG] = true;
@@ -9,7 +156,6 @@
   const CLEARED_ATTR = "data-iq-inline-cleared";
   const HIDDEN_CHROME_ATTR = "data-iq-inline-hidden-chrome";
   const TOP_OFFSET_VAR = "--iq-inline-top-offset";
-  const COMMAND_EVENT = "iqiyi-inline-fs:command";
   const DEFAULT_TOP_OFFSET = 0;
   const MAX_TOP_OFFSET = 120;
   const MAX_TOP_OFFSET_RATIO = 0.35;
@@ -253,7 +399,9 @@
     enableInlineFullscreen();
   };
 
-  const runCommand = (command) => {
+  const runCommand = (detail) => {
+    const command = typeof detail === "string" ? detail : detail?.command;
+
     if (command === "enable") {
       enableInlineFullscreen();
       return;
@@ -266,11 +414,12 @@
 
     if (command === "toggle") {
       toggleInlineFullscreen();
+      return;
     }
   };
 
   const handleCommand = (event) => {
-    runCommand(event.detail?.command);
+    runCommand(event.detail);
   };
 
   const shouldToggleFromKeyboard = (event) =>
@@ -293,5 +442,5 @@
 
   window.addEventListener(COMMAND_EVENT, handleCommand);
   document.addEventListener("keydown", handleKeydown, true);
-  console.log("[iqiyi-inline-fs] content script loaded v4");
+  console.log("[iqiyi-inline-fs] content script loaded v5");
 })();

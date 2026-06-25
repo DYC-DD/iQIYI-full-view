@@ -1,0 +1,38 @@
+{
+  "extDescription": {
+    "description": "Extension description",
+    "message": "Нажмите F или используйте контекстное меню, чтобы переключить полноэкранный режим внутри страницы для видео iQIYI."
+  },
+  "extName": {
+    "description": "Extension name",
+    "message": "iQIYI Full View - полноэкранный проигрыватель внутри страницы для iQIYI"
+  },
+  "contextMenuToggle": {
+    "description": "Context menu item to toggle Full View",
+    "message": "iQIYI Full View"
+  },
+  "popupActive": {
+    "description": "Shown when on iQIYI page",
+    "message": "Активно"
+  },
+  "popupAutoCloseAdDesc": {
+    "description": "Popup auto close pause ad setting description",
+    "message": "Когда по центру экрана появляется реклама при паузе, она будет закрыта автоматически."
+  },
+  "popupAutoCloseAdLabel": {
+    "description": "Popup auto close pause ad setting label",
+    "message": "Автоматически закрывать рекламу при паузе"
+  },
+  "popupDesc": {
+    "description": "Popup usage instructions",
+    "message": "Нажмите \u003Cb>F\u003C/b> на странице видео iQIYI или используйте контекстное меню, чтобы переключить полноэкранный режим внутри страницы. Нажмите \u003Cb>Esc\u003C/b>, чтобы выйти."
+  },
+  "popupInactive": {
+    "description": "Shown when not on iQIYI page",
+    "message": "Неактивно"
+  },
+  "popupTitle": {
+    "description": "Popup heading",
+    "message": "iQIYI Full View"
+  }
+}

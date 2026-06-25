@@ -2,6 +2,14 @@
 
 This changelog follows the [Keep a Changelog](https://keepachangelog.com/zh-TW/1.1.0/) format to track version updates.
 
+## [1.1.0] - 2026-06-24
+
+### Added
+
+- 新增 popup「自動關閉暫停廣告」開關，開啟後會在 iQIYI 影片暫停時自動關閉隨機出現的置中彈出廣告。
+- 自動偵測並點擊 `data-player-hook="centerclose"` 的暫停廣告關閉鈕，關閉開關後則維持原本功能行為。
+- 新增越南語與俄語介面文案支援。
+
 ## [1.0.1] - 2026-06-06
 
 ### Added

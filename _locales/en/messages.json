@@ -15,6 +15,14 @@
     "description": "Shown when on iQIYI page",
     "message": "已啟用"
   },
+  "popupAutoCloseAdDesc": {
+    "description": "Popup auto close pause ad setting description",
+    "message": "When a centered pause ad appears, it will be closed automatically."
+  },
+  "popupAutoCloseAdLabel": {
+    "description": "Popup auto close pause ad setting label",
+    "message": "Auto-close pause ads"
+  },
   "popupDesc": {
     "description": "Popup usage instructions",
     "message": "Press \u003Cb>F\u003C/b> or use the right-click on any iQIYI video page to toggle in-page fullscreen. Press \u003Cb>Esc\u003C/b> to exit."
