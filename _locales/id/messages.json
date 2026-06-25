@@ -15,6 +15,14 @@
     "description": "Shown when on iQIYI page",
     "message": "Aktif"
   },
+  "popupAutoCloseAdDesc": {
+    "description": "Popup auto close pause ad setting description",
+    "message": "Saat iklan jeda di tengah video muncul, iklan akan ditutup otomatis."
+  },
+  "popupAutoCloseAdLabel": {
+    "description": "Popup auto close pause ad setting label",
+    "message": "Tutup otomatis iklan jeda"
+  },
   "popupDesc": {
     "description": "Popup usage instructions",
     "message": "Tekan \u003Cb>F\u003C/b> di halaman video iQIYI atau gunakan menu klik kanan untuk beralih ke mode layar penuh dalam halaman. Tekan \u003Cb>Esc\u003C/b> untuk keluar."

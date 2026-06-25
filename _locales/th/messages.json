@@ -15,6 +15,14 @@
     "description": "Shown when on iQIYI page",
     "message": "เปิดใช้งานแล้ว"
   },
+  "popupAutoCloseAdDesc": {
+    "description": "Popup auto close pause ad setting description",
+    "message": "เมื่อโฆษณาพักเล่นวิดีโอแบบกลางจอปรากฏขึ้น จะปิดให้อัตโนมัติ"
+  },
+  "popupAutoCloseAdLabel": {
+    "description": "Popup auto close pause ad setting label",
+    "message": "ปิดโฆษณาพักเล่นอัตโนมัติ"
+  },
   "popupDesc": {
     "description": "Popup usage instructions",
     "message": "กด \u003Cb>F\u003C/b> บนหน้าวิดีโอ iQIYI หรือใช้เมนูคลิกขวาเพื่อสลับโหมดเต็มหน้าจอภายในหน้า กด \u003Cb>Esc\u003C/b> เพื่อออก"

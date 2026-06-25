@@ -15,6 +15,14 @@
     "description": "Shown when on iQIYI page",
     "message": "已启用"
   },
+  "popupAutoCloseAdDesc": {
+    "description": "Popup auto close pause ad setting description",
+    "message": "视频暂停时若出现居中广告，会自动点击关闭。"
+  },
+  "popupAutoCloseAdLabel": {
+    "description": "Popup auto close pause ad setting label",
+    "message": "自动关闭暂停广告"
+  },
   "popupDesc": {
     "description": "Popup usage instructions",
     "message": "在 iQIYI 视频页面按 \u003Cb>F\u003C/b> 或使用\u003Cb>右键\u003C/b>切换页内全屏，按 \u003Cb>Esc\u003C/b> 退出。"
