@@ -49,7 +49,7 @@ After installation, open an [iQIYI](https://www.iq.com/) video page to use the e
 
 - Toggle in-page full-window playback without entering system fullscreen.
 - Hide selected page chrome while Full View is active so the player can use more browser viewport space.
-- Optional popup switch to automatically close centered pause ads when they appear on iQIYI video pages.
+- Optional popup switch to automatically click ad close buttons on iQIYI pages.
 
 ## Usage
 
@@ -58,7 +58,7 @@ After installation, open an [iQIYI](https://www.iq.com/) video page to use the e
 | `F` / `Right-click`         | Toggle in-page full-window mode |
 | `F` / `Right-click` / `Esc` | Exit in-page full-window mode   |
 
-To use auto-close pause ads, open the extension popup and turn on **Auto-close pause ads**. This setting is off by default and is remembered locally after you change it.
+To use auto-close ads, open the extension popup and turn on **Auto-close ads**. This setting is off by default and is remembered locally after you change it.
 
 > [!TIP]
 >
@@ -70,7 +70,7 @@ This extension uses the following permissions:
 
 - `scripting`: Registers and runs the page content script.
 - `contextMenus`: Provides a right-click option to toggle Full View on iQIYI video pages.
-- `storage`: Saves extension settings locally, such as the auto-close pause ads switch.
+- `storage`: Saves extension settings locally, such as the auto-close ads switch.
 - `host_permissions`: Restricts operation to [iQIYI](https://www.iq.com/) related domains.
 
 > [!IMPORTANT]

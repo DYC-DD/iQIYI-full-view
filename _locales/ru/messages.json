@@ -16,12 +16,12 @@
     "message": "Активно"
   },
   "popupAutoCloseAdDesc": {
-    "description": "Popup auto close pause ad setting description",
-    "message": "Когда по центру экрана появляется реклама при паузе, она будет закрыта автоматически."
+    "description": "Popup auto close ad setting description",
+    "message": "Когда на iQIYI появляется поддерживаемая кнопка закрытия рекламы, она будет нажата автоматически."
   },
   "popupAutoCloseAdLabel": {
-    "description": "Popup auto close pause ad setting label",
-    "message": "Автоматически закрывать рекламу при паузе"
+    "description": "Popup auto close ad setting label",
+    "message": "Автоматически закрывать рекламу"
   },
   "popupDesc": {
     "description": "Popup usage instructions",

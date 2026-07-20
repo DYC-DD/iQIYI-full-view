@@ -16,12 +16,12 @@
     "message": "已啟用"
   },
   "popupAutoCloseAdDesc": {
-    "description": "Popup auto close pause ad setting description",
-    "message": "When a centered pause ad appears, it will be closed automatically."
+    "description": "Popup auto close ad setting description",
+    "message": "When a supported ad close button appears on iQIYI, it will be clicked automatically."
   },
   "popupAutoCloseAdLabel": {
-    "description": "Popup auto close pause ad setting label",
-    "message": "Auto-close pause ads"
+    "description": "Popup auto close ad setting label",
+    "message": "Auto-close ads"
   },
   "popupDesc": {
     "description": "Popup usage instructions",
