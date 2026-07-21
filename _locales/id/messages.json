@@ -16,12 +16,12 @@
     "message": "Aktif"
   },
   "popupAutoCloseAdDesc": {
-    "description": "Popup auto close pause ad setting description",
-    "message": "Saat iklan jeda di tengah video muncul, iklan akan ditutup otomatis."
+    "description": "Popup auto close ad setting description",
+    "message": "Saat tombol tutup iklan yang didukung muncul di iQIYI, tombol itu akan diklik otomatis."
   },
   "popupAutoCloseAdLabel": {
-    "description": "Popup auto close pause ad setting label",
-    "message": "Tutup otomatis iklan jeda"
+    "description": "Popup auto close ad setting label",
+    "message": "Tutup otomatis iklan"
   },
   "popupDesc": {
     "description": "Popup usage instructions",

@@ -2,6 +2,16 @@
 
 This changelog follows the [Keep a Changelog](https://keepachangelog.com/zh-TW/1.1.0/) format to track version updates.
 
+## [1.1.1] - 2026-07-19
+
+### Changed
+
+- 將「自動關閉廣告」偵測範圍調整為較嚴格的白名單，只自動點擊 `.ad-close` 與原本置中暫停廣告的 `.ad-close-center[data-player-hook="centerclose"]` 關閉鈕。
+
+### Fixed
+
+- 收斂自動關閉廣告的判斷與監聽範圍，避免誤點擊 `download-close`、`load-close` 等非廣告關閉元素，並降低播放中播放器 DOM 變動造成的干擾。
+
 ## [1.1.0] - 2026-06-24
 
 ### Added
