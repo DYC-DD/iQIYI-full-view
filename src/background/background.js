@@ -11,7 +11,8 @@ const CONTENT_STYLE_PATH = "src/content/content.css";
 const CONTENT_COMMAND_EVENT = "iqiyi-inline-fs:command";
 const CONTENT_STYLE_MARKER_ATTR = "data-iq-inline-style-injected";
 const AUTO_CLOSE_CENTER_AD_STORAGE_KEY = "autoCloseCenterAdEnabled";
-const AUTO_CLOSE_CENTER_AD_COMMAND = "setAutoCloseCenterAd";
+const AUTO_CLOSE_CENTER_AD_COMMAND = "setAutoCloseAd";
+const LEGACY_AUTO_CLOSE_CENTER_AD_COMMAND = "setAutoCloseCenterAd";
 const AUTO_CLOSE_CENTER_AD_MESSAGE = "iqiyi-inline-fs:auto-close-center-ad";
 const CONTEXT_MENU_TOGGLE_ID = "iqiyi-inline-fs-toggle";
 const CONTEXT_MENU_CONTEXTS = ["all"];
@@ -169,6 +170,9 @@ async function getAutoCloseCenterAdEnabled() {
 }
 
 async function sendAutoCloseCenterAdState(tabId, enabled) {
+  await sendContentCommand(tabId, LEGACY_AUTO_CLOSE_CENTER_AD_COMMAND, {
+    enabled: false,
+  });
   await sendContentCommand(tabId, AUTO_CLOSE_CENTER_AD_COMMAND, { enabled });
 }
 
@@ -179,7 +183,9 @@ async function syncAutoCloseCenterAdToTab(tabId) {
 
 async function syncAutoCloseCenterAdToIqiyiTabs(enabled) {
   const nextEnabled =
-    typeof enabled === "boolean" ? enabled : await getAutoCloseCenterAdEnabled();
+    typeof enabled === "boolean"
+      ? enabled
+      : await getAutoCloseCenterAdEnabled();
   const tabs = await chrome.tabs.query({ url: IQ_MATCHES });
 
   await Promise.allSettled(
@@ -221,7 +227,10 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (!command || !tab?.id) return;
 
   sendInlineFullscreenCommand(tab.id, command).catch((error) => {
-    console.error("[iqiyi-inline-fs] failed to run context menu command", error);
+    console.error(
+      "[iqiyi-inline-fs] failed to run context menu command",
+      error
+    );
   });
 });
 
@@ -230,7 +239,10 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   if (!isIqiyiUrl(tab.url || changeInfo.url)) return;
 
   syncAutoCloseCenterAdToTab(tabId).catch((error) => {
-    console.warn("[iqiyi-inline-fs] failed to sync auto close ad setting", error);
+    console.warn(
+      "[iqiyi-inline-fs] failed to sync auto close ad setting",
+      error
+    );
   });
 });
 
@@ -241,7 +253,10 @@ chrome.storage.onChanged.addListener((changes, areaName) => {
   syncAutoCloseCenterAdToIqiyiTabs(
     Boolean(changes[AUTO_CLOSE_CENTER_AD_STORAGE_KEY].newValue)
   ).catch((error) => {
-    console.warn("[iqiyi-inline-fs] failed to sync auto close ad setting", error);
+    console.warn(
+      "[iqiyi-inline-fs] failed to sync auto close ad setting",
+      error
+    );
   });
 });
 

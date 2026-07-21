@@ -16,12 +16,12 @@
     "message": "已启用"
   },
   "popupAutoCloseAdDesc": {
-    "description": "Popup auto close pause ad setting description",
-    "message": "视频暂停时若出现居中广告，会自动点击关闭。"
+    "description": "Popup auto close ad setting description",
+    "message": "iQIYI 网站出现支持的广告关闭按钮时，会自动点击关闭。"
   },
   "popupAutoCloseAdLabel": {
-    "description": "Popup auto close pause ad setting label",
-    "message": "自动关闭暂停广告"
+    "description": "Popup auto close ad setting label",
+    "message": "自动关闭广告"
   },
   "popupDesc": {
     "description": "Popup usage instructions",

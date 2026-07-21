@@ -16,12 +16,12 @@
     "message": "เปิดใช้งานแล้ว"
   },
   "popupAutoCloseAdDesc": {
-    "description": "Popup auto close pause ad setting description",
-    "message": "เมื่อโฆษณาพักเล่นวิดีโอแบบกลางจอปรากฏขึ้น จะปิดให้อัตโนมัติ"
+    "description": "Popup auto close ad setting description",
+    "message": "เมื่อปุ่มปิดโฆษณาที่รองรับปรากฏบน iQIYI ระบบจะคลิกปิดให้อัตโนมัติ"
   },
   "popupAutoCloseAdLabel": {
-    "description": "Popup auto close pause ad setting label",
-    "message": "ปิดโฆษณาพักเล่นอัตโนมัติ"
+    "description": "Popup auto close ad setting label",
+    "message": "ปิดโฆษณาอัตโนมัติ"
   },
   "popupDesc": {
     "description": "Popup usage instructions",

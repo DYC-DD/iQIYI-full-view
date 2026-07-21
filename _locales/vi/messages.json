@@ -16,12 +16,12 @@
     "message": "Đã bật"
   },
   "popupAutoCloseAdDesc": {
-    "description": "Popup auto close pause ad setting description",
-    "message": "Khi quảng cáo tạm dừng ở giữa màn hình xuất hiện, tiện ích sẽ tự động đóng quảng cáo."
+    "description": "Popup auto close ad setting description",
+    "message": "Khi nút đóng quảng cáo được hỗ trợ xuất hiện trên iQIYI, tiện ích sẽ tự động nhấp để đóng."
   },
   "popupAutoCloseAdLabel": {
-    "description": "Popup auto close pause ad setting label",
-    "message": "Tự động đóng quảng cáo tạm dừng"
+    "description": "Popup auto close ad setting label",
+    "message": "Tự động đóng quảng cáo"
   },
   "popupDesc": {
     "description": "Popup usage instructions",
