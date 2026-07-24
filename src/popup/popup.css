@@ -37,6 +37,13 @@ body {
   height: 32px;
 }
 
+.brand-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
 .brand h1 {
   min-width: 0;
   font-size: 18px;
@@ -153,14 +160,6 @@ body {
 .switch input:focus-visible + .switch-track {
   outline: 2px solid #8bdc9d;
   outline-offset: 2px;
-}
-
-.row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 12px;
-  padding: 0;
 }
 
 .value {

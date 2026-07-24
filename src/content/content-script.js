@@ -120,6 +120,8 @@
       featureState.observer.observe(root, {
         childList: true,
         subtree: true,
+        attributes: true,
+        attributeFilter: ["class", "style", "data-player-hook"],
       });
       featureState.interval = window.setInterval(
         closeCenterAds,
