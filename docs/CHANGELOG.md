@@ -2,6 +2,17 @@
 
 This changelog follows the [Keep a Changelog](https://keepachangelog.com/zh-TW/1.1.0/) format to track version updates.
 
+## [1.1.2] - 2026-07-24
+
+### Changed
+
+- 優化 popup 啟用狀態的版面配置，將「已啟用／未啟用」狀態膠囊移至標題右側，使介面更精簡。
+
+### Fixed
+
+- 恢復監聽暫停廣告關閉鈕的 `class`、`style` 與 `data-player-hook` 屬性變化，讓網站重複使用既有廣告節點時能即時觸發自動關閉，減少等待 800ms 輪詢造成的延遲。
+- 保留 1.1.1 的廣告關閉鈕白名單、尺寸與可見性檢查，維持避免誤點擊非廣告元素的防護。
+
 ## [1.1.1] - 2026-07-19
 
 ### Changed
